@@ -11,16 +11,14 @@ const port = process.env.PORT || 3000;
 //   origin: ['https://angular-weather-app-tau-fawn.vercel.app', 'http://localhost:4200']
 // };
 
-const options = [
-  cors({
-    origin: ['http://localhost:4200', 'https://angular-weather-app-tau-fawn.vercel.app'], // Permitir as origens 'http://localhost:4200' e 'https://angular-weather-app-tau-fawn.vercel.app'
-    methods: 'GET', // Permitir apenas o método GET
-    allowedHeaders: ['Content-Type', 'Authorization'], // Permitir apenas esses cabeçalhos
-    credentials: true, // Permitir credenciais
-  })
-];
+const corsOptions = {
+  origin: ['http://localhost:4200', 'https://angular-weather-app-tau-fawn.vercel.app'],
+  methods: 'GET', 
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
 
-app.use(options);
+app.use(cors(corsOptions));
 
 app.get('/api/get-key', (req, res) => {
   const apiKey = process.env.API_KEY;
