@@ -7,11 +7,11 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-const corsOptions = {
-  origin: ['https://angular-weather-app-tau-fawn.vercel.app', 'http://localhost:4200']
-};
+// const corsOptions = {
+//   origin: ['https://angular-weather-app-tau-fawn.vercel.app', 'http://localhost:4200']
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/api/get-key', (req, res) => {
   const apiKey = process.env.API_KEY;
