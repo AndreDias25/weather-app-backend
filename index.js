@@ -16,6 +16,7 @@ const corsOptions = {
   credentials: true,
 };
 
+
 app.use(cors(corsOptions));
 
 app.get('/api/get-key', (req, res) => {
